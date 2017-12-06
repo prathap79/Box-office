@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+{% load static %}
+
+{% include 'head.html' %}
+
+<html>
+  <body>
+    <!-- Wrapper -->
+      <div id="wrapper">
+        <!-- Main -->
+          <div id="main">
+            <div class="inner">
+              {% include 'header.html' %}
+              <!-- Banner -->
+              <h1>Show Details</h1>
+			  <h2>{{ show_info }}</h2>
+			  <form method="post" action="{% url 'payment_gateway' %}">
+				{% csrf_token %}
+				{{ form.as_p }}
+				Seats: <input name="selected_seat" id="selected_seat" type="text" readonly />
+				<span>Total number of seats: </span><span id="no_of_seats">0</span>
+				<input type="hidden" name="show_id" id="show_id" value="{{ show_info.id }}" readonly />
+				<button type="submit">Confirm</button>
+			</form>
+
+            </div>
+          </div>
+        <!-- Sidebar -->
+          {% include 'sidebar.html' %}
+      </div>
+    <!-- Scripts -->
+      {% include 'js_scripts.html' %}
+  </body>
+</html>
+
+
+
+

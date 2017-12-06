@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+{% load static %}
+
+{% include 'head.html' %}
+
+<html>
+	<body>
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							{% include 'header.html' %}
+							<!-- Banner -->
+								<br><br>
+								<h3 align="center">Please send your comment below, We will contact you back..</h3>
+								  <h4 align="center">Make sure you connected to Internet</h4>
+								  <form action="/send_comment/" method='get'>
+								    <table align="center" border="1">
+								      <tr><th>Name</th><td><input type="text" name="name"></td></tr>
+								      <tr><th>Mobile Number</th><td><input type="text" name="mobile"></td></tr>
+								      <tr><th>Email</th><td><input type="text" name="mail"></td></tr>
+								      <tr><th>Comment Here</th><td><input type="text" name="comment" size=""></td></tr>
+								      <tr align="center"><td colspan="2"><input type="submit" name="" value="Send"></td></tr>
+								    </table>
+								  </form>
+						</div>
+					</div>
+				<!-- Sidebar -->
+					{% include 'sidebar.html' %}
+			</div>
+		<!-- Scripts -->
+			{% include 'js_scripts.html' %}
+	</body>
+</html>

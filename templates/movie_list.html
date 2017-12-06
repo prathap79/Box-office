@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+{% load static %}
+
+{% include 'head.html' %}
+
+<html>
+	<body>
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							{% include 'header.html' %}
+							<!-- Banner -->
+							<h2 align="center"> Welcome to movie List page</h2>
+							{% for movie in movies %}
+				            		<p>{{ movie.cast }}</p>
+				              		<p>{{ movie.language }} | {{ movie.certificate }}</p>
+				              		<a class="btn btn-primary" href="/movie/{{movie.id}}" role="button">Book Now</a></p>
+				           		 
+					    {% if forloop.counter|divisibleby:3 or forloop.counter == category|length %}
+					    
+					    {% endif %}
+					    {% if forloop.counter != category|length %}
+					    {% endif %}
+					    {% endfor %}
+							
+						</div>
+					</div>
+				<!-- Sidebar -->
+					{% include 'sidebar.html' %}
+			</div>
+		<!-- Scripts -->
+			{% include 'js_scripts.html' %}
+	</body>
+</html>

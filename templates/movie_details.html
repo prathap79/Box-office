@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+{% load static %}
+
+{% include 'head.html' %}
+
+<html>
+  <body>
+    <!-- Wrapper -->
+      <div id="wrapper">
+        <!-- Main -->
+          <div id="main">
+            <div class="inner">
+              {% include 'header.html' %}
+              <!-- Banner -->
+              <h2 align="center"> Welcome to movie List page</h2>
+              <h4> Movie Name : {{ movie_info.name }}</h4>
+              <h4>Cast : {{ movie_info.cast }}</h4>
+              <h4>Director : {{ movie_info.director }}</h4>
+              <h4>Language : {{ movie_info.language }}</h4>
+              <h4>Duration : {{ movie_info.run_length }}</h4>
+              <h4>Certificate : {{ movie_info.certificate }}</h4>
+
+              <h3>Now Showing</h3>
+              
+                {% for theatre in show_list %}
+                    <a href="#">
+                      <img class="media-object" src="" alt="{{ theatre.0.theatre.name }}">
+                    </a>
+                    <h4 class="media-heading"><a href="/theatre/{{theatre.0.theatre.id}}">{{ theatre.theatre.name }} | {{ theatre.theatre.address }}</a></h4>
+                    <ul>
+                    {% for showtime in theatre %}
+                      <li><a href="{% url 'reserve_seat' showtime.id %}">{{ showtime.time|time:"h:i A" }}</a></li>
+                    {% endfor %}
+                    </ul>
+                  {% endfor %}
+
+            </div>
+          </div>
+        <!-- Sidebar -->
+          {% include 'sidebar.html' %}
+      </div>
+    <!-- Scripts -->
+      {% include 'js_scripts.html' %}
+  </body>
+</html>
+
